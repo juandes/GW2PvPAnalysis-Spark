@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Guild Wars 2 PvP Analysis - machine learning on Spark by juandes</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Guild Wars 2 PvP Analysis - machine learning on Spark</h1>
+        <p>This project is a follow up of my previous GW2 analysis. On this one, I executed the same ML algorithms used previously, using Spark</p>
+
+        <p class="view"><a href="https://github.com/juandes/GW2PvPAnalysis-Spark">View the Project on GitHub <small>juandes/GW2PvPAnalysis-Spark</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/juandes/GW2PvPAnalysis-Spark/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/juandes/GW2PvPAnalysis-Spark/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/juandes/GW2PvPAnalysis-Spark">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="guild-wars-2-pvp-analysis---machine-learning-on-spark" class="anchor" href="#guild-wars-2-pvp-analysis---machine-learning-on-spark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Guild Wars 2 PvP Analysis - machine learning on Spark</h1>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<hr>
+
+<p>As a follow up of the report I did previously, titled <em>PvP in Guild Wars 2: A data analysis</em>,  I decided to run the same machine learning algorithms used in said report, in another framework, Apache Spark, to see how they differ from each other. The original purpose why this was done on the previous report, was to verify if it is possible to predict the outcome of a match using the composition of the team.</p>
+
+<p>The tests were done on Apache Spark 1.4.0, using the Python API.</p>
+
+<p>The original analysis can be found here: <a href="http://juandes.github.io/GW2PvPAnalysis/">PvP in Guild Wars 2: A data analysis</a></p>
+
+<h2>
+<a id="dataset" class="anchor" href="#dataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dataset</h2>
+
+<hr>
+
+<p>The dataset used is made of 238 team compositions, taken from 119 matches done in Conquest (Guild Wars 2). The file is made of 6 columns; the first five columns represent the five members of the team and the sixth one is the outcome of the match.</p>
+
+<h2>
+<a id="result" class="anchor" href="#result" aria-hidden="true"><span class="octicon octicon-link"></span></a>Result</h2>
+
+<hr>
+
+<p>On the previous analysis, the classification error of the random forest model on the test set, was 52.63%. On Spark, the classification error of the model was 47.30%. The naive Bayes classifier also showed a smaller error in comparison with the previous test. Previously, the classification error was 57.89% and the model done in Spark, reported an error of 54.05%.</p>
+
+<p>To summarize, both models showed a smaller classification error on Spark. However, to obtain a more fair comparison, the proper thing would be to perform several tests both in R and Spark, get the averages and compare them.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/juandes">juandes</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
