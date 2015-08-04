@@ -21,8 +21,8 @@ naiveBayesModel = NaiveBayes.train(trainingData, 1.0)
 predictionAndLabelNaiveBayes = testData.map(lambda x: (naiveBayesModel.predict(x.features), x.label))
 
 # Calculate the accuracy of the model
-accuracyNaiveBayes = 1.0 * predictionAndLabelNaiveBayes.filter(lambda (x, y): x == y).count() / testData.count()
-print "Naive Bayes model accuracy: {0:f}".format(accuracyNaiveBayes)
+errorNaiveBayes = 1.0 * predictionAndLabelNaiveBayes.filter(lambda (x, y): x != y).count() / testData.count()
+print "Naive Bayes model classification error: {0:f}".format(errorNaiveBayes)
 
 # Create and train the random forest model
 randomForestModel = RandomForest.trainClassifier(trainingData, numClasses=2,
@@ -36,5 +36,5 @@ transformation or action. Call predict directly on the RDD instead.
 '''
 predictionsRandomForest = randomForestModel.predict(testData.map(lambda x: x.features))
 labelsAndPredictionsRF = testData.map(lambda x: x.label).zip(predictionsRandomForest)
-accuracyRandomForest = labelsAndPredictionsRF.filter(lambda (x, y): x == y).count() / float(testData.count())
-print "Random forest model accuracy: {0:f}".format(accuracyRandomForest)
+errorRandomForest = labelsAndPredictionsRF.filter(lambda (x, y): x != y).count() / float(testData.count())
+print "Random forest classification error: {0:f}".format(errorRandomForest)
