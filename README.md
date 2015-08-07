@@ -6,6 +6,8 @@ As a follow up of the report I did previously, titled PvP in _Guild Wars 2: A da
 
 The tests were done on Apache Spark 1.4.0, using the Python API.
 
+Link to the report: [Guild Wars 2 PvP Analysis - machine learning on Spark - report](http://juandes.github.io/GW2PvPAnalysis-Spark/)
+
 ## Project
 
 
